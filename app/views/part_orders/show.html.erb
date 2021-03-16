@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Part name:</strong>
+  <%= @part_order.part_name %>
+</p>
+
+<p>
+  <strong>Part description:</strong>
+  <%= @part_order.part_description %>
+</p>
+
+<%= link_to 'Edit', edit_part_order_path(@part_order) %> |
+<%= link_to 'Back', part_orders_path %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parts</h1>
+
+<div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Location</th>
+              <th>Quantity</th>
+              <th>Mfr number</th>
+              <th>Barcode</th>
+              <th>Machine</th>
+              <th>Vendors</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @parts.each do |part| %>
+              <tr>
+                <td><% unless part.main_image.url.nil? %><%= image_tag part.main_image, style: "width: 50px;" %><% end %></td>
+                <td><%= part.id %></td>
+                <td><%= part.description %></td>
+                <td><%= part.location %></td>
+                <td><%= part.quantity %></td>
+                <td><%= part.mfr_number %></td>
+                <td><%= part.barcode %></td>
+                <td><%= part.machine %></td>
+                <td><%= part.vendors.map(&:name) %>
+                <td><%= link_to 'Show', part %></td>
+                <td><%= link_to 'Edit', edit_part_path(part) %></td>
+                <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+<br>
+
+<%= link_to 'New Part', new_part_path %>

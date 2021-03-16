@@ -1,0 +1,54 @@
+<%= form_with(model: part_order) do |form| %>
+  <% if part_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(part_order.errors.count, "error") %> prohibited this part_order from being saved:</h2>
+
+      <ul>
+        <% part_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= form.label :part_mfr_number %>
+      <%= form.text_field :part_name, data: {behavior: "autocomplete-parts"}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :part_description %>
+      <%= form.text_area :part_description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :vendor_name %>
+      <%= form.text_field :vendor, data: {behavior: "autocomplete-order-vendors"}, class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :vendor_contact_person %>
+      <%= form.text_field :vendor_contact, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :vendor_address %>
+      <%= form.text_field :vendor_address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, class: "form-control" %>
+    </div>
+
+     <div class="form-group">
+      <%= form.label :total %>
+      <%= form.number_field :total, class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+      <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+</div>

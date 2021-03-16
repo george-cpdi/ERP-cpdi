@@ -1,0 +1,28 @@
+
+<main class="form-signin">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h3 class="text-center">CPDI</h3>
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <label for="inputEmail" class="visually-hidden">Email address</label>
+    <%= f.email_field :email, placeholder: "Email address", class: "form-control" %>
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <%= f.submit "Sign in", class: "w-100 btn btn-lg btn-primary" %>
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        Don't have an account? <%= render "devise/shared/links" %>
+      </div>
+    </div>
+      
+    <p class="mt-5 mb-3 text-muted">© CPDI 2021</p>
+  <% end %>
+
+</main>
+
+
+
